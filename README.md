@@ -1,10 +1,10 @@
 # MemCode
 
-[![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-8A2BE2)](https://neurips.cc/)
+[![NeurIPS 2026 Poster](https://img.shields.io/badge/NeurIPS-2026_Poster-8A2BE2)](https://neurips.cc/)
 [![arXiv](https://img.shields.io/badge/arXiv-2610.19472-b31b1b.svg)](https://arxiv.org/abs/2610.19472)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Official research code for **MemCode: Discrete Semantic Representations for Long-Term Agent Memory**, accepted at **NeurIPS 2026**.
+Official research code for **MemCode: Discrete Semantic Representations for Long-Term Agent Memory**, accepted at **NeurIPS 2026 (Poster)**.
 
 [Paper](https://arxiv.org/abs/2610.19472) | [PDF](https://arxiv.org/pdf/2610.19472) | [中文说明](README_zh.md)
 

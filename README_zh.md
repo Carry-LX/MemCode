@@ -1,6 +1,6 @@
 # MemCode 使用说明
 
-**MemCode: Discrete Semantic Representations for Long-Term Agent Memory** 已被 **NeurIPS 2026** 录用。
+**MemCode: Discrete Semantic Representations for Long-Term Agent Memory** 已被 **NeurIPS 2026** 录用（Poster）。
 
 [论文](https://arxiv.org/abs/2610.19472) | [PDF](https://arxiv.org/pdf/2610.19472) | [English](README.md)
 
