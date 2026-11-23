@@ -35,12 +35,12 @@
 
 ```mermaid
 flowchart LR
-    A["💬 Dialogue history"] --> B["✂️ Segmentation<br/>+ context"]
+    A["💬 Dialogue history"] --> B["✂️ Segmentation + context"]
     B --> C["🧩 Atomic memory units"]
     C --> D["🔎 BGE dense embedding"]
-    C --> E["🔢 T5 VQ-VAE<br/>ISQ codebook"]
-    D --> F[("📦 Vector store")]
-    E --> G[("🕸️ Codebook index")]
+    C --> E["🔢 T5 VQ-VAE / ISQ codebook"]
+    D --> F["📦 Vector store"]
+    E --> G["🕸️ Codebook index"]
     F --> H["🔀 Dual-path retrieval"]
     G --> H
     H --> I["🧾 Source-dialogue back-filling"]
