@@ -1,9 +1,12 @@
-<div align="center">
-  <img src="assets/memcode-banner.svg" alt="MemCode: Discrete Semantic Representations for Long-Term Agent Memory" width="100%" />
-</div>
+<h1 align="center">🧠 MemCode</h1>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2610.19472"><img alt="NeurIPS 2026 Poster" src="https://img.shields.io/badge/NeurIPS%202026-Poster-7C3AED?style=for-the-badge" /></a>
+  <strong>Discrete Semantic Representations for Long-Term Agent Memory</strong><br/>
+  <sub>NeurIPS 2026 Poster · Sydney</sub>
+</p>
+
+<p align="center">
+  <a href="https://neurips.cc/virtual/2026/poster/152904"><img alt="NeurIPS 2026 Poster" src="https://img.shields.io/badge/NeurIPS%202026-Poster-7C3AED?style=for-the-badge" /></a>
   <a href="https://arxiv.org/abs/2610.19472"><img alt="arXiv 2610.19472" src="https://img.shields.io/badge/arXiv-2610.19472-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white" /></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge&logo=opensourceinitiative&logoColor=white" /></a>
   <br/>
@@ -13,7 +16,8 @@
 </p>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2610.19472">📄 <strong>Paper</strong></a> ·
+  <a href="https://neurips.cc/virtual/2026/poster/152904">🏛️ <strong>NeurIPS Poster</strong></a> ·
+  <a href="https://arxiv.org/abs/2610.19472">📄 <strong>arXiv</strong></a> ·
   <a href="https://arxiv.org/pdf/2610.19472">📕 <strong>PDF</strong></a> ·
   <a href="README_zh.md">🇨🇳 <strong>中文说明</strong></a> ·
   <a href="#-quick-start">🚀 <strong>Quick Start</strong></a>
@@ -33,19 +37,11 @@
 
 ## 🏗️ How It Works
 
-```mermaid
-flowchart LR
-    A["💬 Dialogue history"] --> B["✂️ Segmentation + context"]
-    B --> C["🧩 Atomic memory units"]
-    C --> D["🔎 BGE dense embedding"]
-    C --> E["🔢 T5 VQ-VAE / ISQ codebook"]
-    D --> F["📦 Vector store"]
-    E --> G["🕸️ Codebook index"]
-    F --> H["🔀 Dual-path retrieval"]
-    G --> H
-    H --> I["🧾 Source-dialogue back-filling"]
-    I --> J["🤖 Answer + evaluation"]
-```
+<p align="center">
+  <img src="assets/memcode-architecture.svg" alt="MemCode pipeline: dialogue, atomic memory units, dense and codebook indexes, dual-path retrieval, and evidence-grounded answer generation" width="100%" />
+</p>
+
+Dialogue is rewritten into source-grounded AMUs, indexed through dense embeddings and a discrete codebook, then retrieved through both paths before answer generation.
 
 ## 🚀 Quick Start
 
@@ -143,17 +139,24 @@ python tools/validate_release.py
 
 ## 📚 Citation
 
-If you find MemCode useful, please cite our paper:
+Official page: [NeurIPS 2026 Poster #152904](https://neurips.cc/virtual/2026/poster/152904)
+
+If you find MemCode useful, please cite our NeurIPS 2026 paper:
 
 ```bibtex
-@article{li2026memcode,
-  title   = {MemCode: Discrete Semantic Representations for Long-Term Agent Memory},
-  author  = {Li, Xin and Hu, Liang and Miao, Duoqian and Peng, Ming and Zhang, Qi},
-  journal = {arXiv preprint arXiv:2610.19472},
-  year    = {2026}
+@inproceedings{li2026memcode,
+  title         = {MemCode: Discrete Semantic Representations for Long-Term Agent Memory},
+  author        = {Li, Xin and Hu, Liang and Miao, Duoqian and Peng, Ming and Zhang, Qi},
+  booktitle     = {Advances in Neural Information Processing Systems},
+  year          = {2026},
+  note          = {Poster},
+  url           = {https://neurips.cc/virtual/2026/poster/152904},
+  eprint        = {2610.19472},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
 }
 ```
 
 <p align="center">
-  <sub>Built for long-term agent memory research · NeurIPS 2026 Poster</sub>
+  <sub>Built for long-term agent memory research · NeurIPS 2026 Poster · Sydney</sub>
 </p>

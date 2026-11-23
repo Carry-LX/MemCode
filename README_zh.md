@@ -1,9 +1,12 @@
-<div align="center">
-  <img src="assets/memcode-banner.svg" alt="MemCode：面向长期智能体记忆的离散语义表示" width="100%" />
-</div>
+<h1 align="center">🧠 MemCode 使用说明</h1>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2610.19472"><img alt="NeurIPS 2026 Poster" src="https://img.shields.io/badge/NeurIPS%202026-Poster-7C3AED?style=for-the-badge" /></a>
+  <strong>面向长期智能体记忆的离散语义表示</strong><br/>
+  <sub>NeurIPS 2026 Poster · Sydney</sub>
+</p>
+
+<p align="center">
+  <a href="https://neurips.cc/virtual/2026/poster/152904"><img alt="NeurIPS 2026 Poster" src="https://img.shields.io/badge/NeurIPS%202026-Poster-7C3AED?style=for-the-badge" /></a>
   <a href="https://arxiv.org/abs/2610.19472"><img alt="arXiv 2610.19472" src="https://img.shields.io/badge/arXiv-2610.19472-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white" /></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge&logo=opensourceinitiative&logoColor=white" /></a>
   <br/>
@@ -12,7 +15,8 @@
 </p>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2610.19472">📄 <strong>论文</strong></a> ·
+  <a href="https://neurips.cc/virtual/2026/poster/152904">🏛️ <strong>NeurIPS Poster</strong></a> ·
+  <a href="https://arxiv.org/abs/2610.19472">📄 <strong>arXiv</strong></a> ·
   <a href="https://arxiv.org/pdf/2610.19472">📕 <strong>PDF</strong></a> ·
   <a href="README.md">🇬🇧 <strong>English</strong></a> ·
   <a href="#-环境和配置">🚀 <strong>快速开始</strong></a>
@@ -24,19 +28,11 @@
 
 ## 🧭 数据流程
 
-```mermaid
-flowchart LR
-    A["💬 完整消息"] --> B["✂️ 分句与历史背景"]
-    B --> C["🧩 LLM 抽取 AMU"]
-    C --> D["🔎 BGE 向量"]
-    C --> E["🔢 V10 离散码"]
-    D --> F["📦 向量库"]
-    E --> G["🕸️ 码本索引"]
-    F --> H["🔀 双路检索"]
-    G --> H
-    H --> I["🧾 原始消息回填"]
-    I --> J["🤖 答题与评估"]
-```
+<p align="center">
+  <img src="assets/memcode-architecture.svg" alt="MemCode 流程：对话、原子记忆单元、向量与码本索引、双路检索和基于证据的答题" width="100%" />
+</p>
+
+完整对话先被改写为有来源指向的 AMU，再分别建立稠密向量索引和离散码本索引；两条路径共同检索后，程序回填原始消息并完成答题与评估。
 
 ## ⚙️ 环境和配置
 
@@ -96,6 +92,25 @@ python -m unittest discover -s tests -v
 python tools/validate_release.py
 ```
 
+
+## 📚 引用
+
+官方页面：[NeurIPS 2026 Poster #152904](https://neurips.cc/virtual/2026/poster/152904)
+
+```bibtex
+@inproceedings{li2026memcode,
+  title         = {MemCode: Discrete Semantic Representations for Long-Term Agent Memory},
+  author        = {Li, Xin and Hu, Liang and Miao, Duoqian and Peng, Ming and Zhang, Qi},
+  booktitle     = {Advances in Neural Information Processing Systems},
+  year          = {2026},
+  note          = {Poster},
+  url           = {https://neurips.cc/virtual/2026/poster/152904},
+  eprint        = {2610.19472},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI}
+}
+```
+
 <p align="center">
-  <sub>面向长期智能体记忆研究 · NeurIPS 2026 Poster</sub>
+  <sub>面向长期智能体记忆研究 · NeurIPS 2026 Poster · Sydney</sub>
 </p>

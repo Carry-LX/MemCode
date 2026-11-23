@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: If you use this software, please cite the associated paper.
+message: If you use this software, please cite the associated NeurIPS 2026 paper.
 title: "MemCode: Discrete Semantic Representations for Long-Term Agent Memory"
 authors:
   - family-names: Li
@@ -13,11 +13,11 @@ authors:
   - family-names: Zhang
     given-names: Qi
 repository-code: https://github.com/Carry-LX/MemCode
-url: https://arxiv.org/abs/2610.19472
+url: https://neurips.cc/virtual/2026/poster/152904
 license: MIT
 year: 2026
 preferred-citation:
-  type: article
+  type: conference-paper
   title: "MemCode: Discrete Semantic Representations for Long-Term Agent Memory"
   authors:
     - family-names: Li
@@ -30,5 +30,7 @@ preferred-citation:
       given-names: Ming
     - family-names: Zhang
       given-names: Qi
-  journal: "arXiv preprint arXiv:2610.19472"
+  conference:
+    name: "Advances in Neural Information Processing Systems"
   year: 2026
+  url: https://neurips.cc/virtual/2026/poster/152904
