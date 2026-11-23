@@ -1,41 +1,72 @@
-# MemCode
+<div align="center">
+  <img src="assets/memcode-banner.svg" alt="MemCode: Discrete Semantic Representations for Long-Term Agent Memory" width="100%" />
+</div>
 
-[![NeurIPS 2026 Poster](https://img.shields.io/badge/NeurIPS-2026_Poster-8A2BE2)](https://neurips.cc/)
-[![arXiv](https://img.shields.io/badge/arXiv-2610.19472-b31b1b.svg)](https://arxiv.org/abs/2610.19472)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<p align="center">
+  <a href="https://arxiv.org/abs/2610.19472"><img alt="NeurIPS 2026 Poster" src="https://img.shields.io/badge/NeurIPS%202026-Poster-7C3AED?style=for-the-badge" /></a>
+  <a href="https://arxiv.org/abs/2610.19472"><img alt="arXiv 2610.19472" src="https://img.shields.io/badge/arXiv-2610.19472-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white" /></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge&logo=opensourceinitiative&logoColor=white" /></a>
+  <br/>
+  <img alt="Python 3.10–3.11" src="https://img.shields.io/badge/Python-3.10%E2%80%933.11-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
+  <img alt="Long-term memory" src="https://img.shields.io/badge/Long--term-Memory-0EA5E9?style=for-the-badge&logo=databricks&logoColor=white" />
+</p>
 
-Official research code for **MemCode: Discrete Semantic Representations for Long-Term Agent Memory**, accepted at **NeurIPS 2026 (Poster)**.
+<p align="center">
+  <a href="https://arxiv.org/abs/2610.19472">📄 <strong>Paper</strong></a> ·
+  <a href="https://arxiv.org/pdf/2610.19472">📕 <strong>PDF</strong></a> ·
+  <a href="README_zh.md">🇨🇳 <strong>中文说明</strong></a> ·
+  <a href="#-quick-start">🚀 <strong>Quick Start</strong></a>
+</p>
 
-[Paper](https://arxiv.org/abs/2610.19472) | [PDF](https://arxiv.org/pdf/2610.19472) | [中文说明](README_zh.md)
+> **MemCode** couples retrieval-oriented writing with discrete associative retrieval. It rewrites dialogue into source-grounded atomic memory units (AMUs), quantizes them with a T5 VQ-VAE, and retrieves evidence through both dense vectors and codebook co-occurrence.
 
-MemCode extracts source-grounded atomic memory units (AMUs), encodes them with
-a T5 VQ-VAE, and retrieves evidence through dense vectors and codebook
-co-occurrence. Optional consolidation retains links to the source dialogue.
+## ✨ Highlights
 
-## Setup
+| | Capability | What it brings to long-term agent memory |
+| :---: | --- | --- |
+| 🧩 | **Atomic Memory Units** | Rewrites context-dependent dialogue into self-contained, source-linked facts. |
+| 🔢 | **Isomorphic Semantic Quantization** | Maps AMUs into a learnable codebook for stable, discrete memory representations. |
+| 🕸️ | **Codebook Co-occurrence Retrieval** | Adds an associative retrieval path for evidence that is logically related but lexically distant. |
+| 🧠 | **Dual-Path Recall** | Combines dense-vector similarity with codebook topology to recover richer evidence. |
+| 🔄 | **Online Writes + Async Consolidation** | Keeps atomic writes lightweight while consolidating long-term memory in the background. |
 
-Use Python 3.10 or 3.11 and run commands from this directory:
+## 🏗️ How It Works
+
+```mermaid
+flowchart LR
+    A["💬 Dialogue history"] --> B["✂️ Segmentation<br/>+ context"]
+    B --> C["🧩 Atomic memory units"]
+    C --> D["🔎 BGE dense embedding"]
+    C --> E["🔢 T5 VQ-VAE<br/>ISQ codebook"]
+    D --> F[("📦 Vector store")]
+    E --> G[("🕸️ Codebook index")]
+    F --> H["🔀 Dual-path retrieval"]
+    G --> H
+    H --> I["🧾 Source-dialogue back-filling"]
+    I --> J["🤖 Answer + evaluation"]
+```
+
+## 🚀 Quick Start
+
+Use Python 3.10 or 3.11 and run commands from the repository root:
 
 ```bash
 python -m pip install -r requirements.txt
 python -m nltk.downloader punkt punkt_tab
 ```
 
-1. Prepare the JSON files described in [data/README.md](data/README.md).
-2. Configure the local model assets described in [models/README.md](models/README.md).
-3. Copy `local_config.example.py` to `local_config.py`. Set `API_KEY`,
-   `API_BASE_URL`, model paths and `DEVICE`. The endpoint must serve the selected
-   working model and `JUDGE_MODEL`. Private configuration is excluded from Git.
-4. Set `MAX_ROWS = 1` for an initial run, or `None` for all rows.
-   Use a new `RUN_LABEL` for each independent run.
-5. Run `python check_environment.py`, then choose an entry below.
+1. 📚 Prepare the JSON files described in [`data/README.md`](data/README.md).
+2. 🧠 Configure local model assets as described in [`models/README.md`](models/README.md).
+3. 🔐 Copy `local_config.example.py` to `local_config.py`. Set `API_KEY`, `API_BASE_URL`, model paths and `DEVICE`. The endpoint must serve the selected working model and `JUDGE_MODEL`. Private configuration is excluded from Git.
+4. 🧪 Set `MAX_ROWS = 1` for an initial run, or `None` for all rows. Use a new `RUN_LABEL` for each independent run.
+5. ✅ Run `python check_environment.py`, then choose an entry below.
 
-Parameters are explicit variables in `settings.py` and `local_config.py`;
-experiment selection does not require command-line options.
+Parameters are explicit variables in `settings.py` and `local_config.py`; experiment selection does not require command-line options.
 
-## Run configurations
+## 🧪 Run Configurations
 
-| Dataset | Working model | Without consolidation | With consolidation |
+| 📚 Dataset | 🤖 Working model | 🧱 Without consolidation | 🔄 With consolidation |
 |---|---|---|---|
 | LoCoMo | GPT | `run_locomo_gpt_baseline.py` | `run_locomo_gpt_consolidated.py` |
 | LoCoMo | Qwen | `run_locomo_qwen_baseline.py` | `run_locomo_qwen_consolidated.py` |
@@ -48,17 +79,11 @@ For example:
 python run_locomo_gpt_baseline.py
 ```
 
-`baseline` selects MemCode without consolidation. Memory construction,
-consolidation and answer generation use the selected working model.
-Configure the evaluator model through `JUDGE_MODEL`.
+`baseline` selects MemCode without consolidation. Memory construction, consolidation and answer generation use the selected working model. Configure the evaluator model through `JUDGE_MODEL`.
 
-Outputs are stored in `runs/<profile>/<RUN_LABEL>/`, including QA traces,
-aggregate results, performance counters and memory stores. A run manifest
-records the configuration and dataset/checkpoint hashes. LoCoMo requires a
-fresh output directory; LongMemEval can resume a matching configuration.
-LoCoMo category 5 is excluded by the runner configuration.
+Outputs are stored in `runs/<profile>/<RUN_LABEL>/`, including QA traces, aggregate results, performance counters and memory stores. A run manifest records the configuration and dataset/checkpoint hashes. LoCoMo requires a fresh output directory; LongMemEval can resume a matching configuration. LoCoMo category 5 is excluded by the runner configuration.
 
-## Existing-memory workflow
+## ♻️ Existing-Memory Workflow
 
 Set `EXISTING_MEMORY_SOURCE_DIR` and `EXISTING_MEMORY_PROFILE`, then run:
 
@@ -66,61 +91,57 @@ Set `EXISTING_MEMORY_SOURCE_DIR` and `EXISTING_MEMORY_PROFILE`, then run:
 python run_longmemeval_from_existing_memory.py
 ```
 
-Each source `row_<index>_data/` must contain `metadata.db`,
-`metadata.db.stats.json`, `vector_stores/atomic_memory.faiss` and
-`vector_stores/atomic_memory_map.json`. Use the same dataset ordering,
-embedding model, checkpoint and working model. The workflow copies each
-store to a separate output directory before consolidation.
+Each source `row_<index>_data/` must contain `metadata.db`, `metadata.db.stats.json`, `vector_stores/atomic_memory.faiss` and `vector_stores/atomic_memory_map.json`. Use the same dataset ordering, embedding model, checkpoint and working model. The workflow copies each store to a separate output directory before consolidation.
 
-## Optional retrieval variants
+## 🔍 Optional Retrieval Variants
 
 For a baseline profile, set `RETRIEVER_OVERRIDE` to a supported module:
 
 - `src.retrieval.bm25_baseline_retriever`
 - `src.retrieval.ablation_vector_top40_retriever`
-- `src.retrieval.ablation_codebook_expansion_retriever` (or `_v2`, `_v3`)
+- `src.retrieval.ablation_codebook_expansion_retriever` or `_v2` / `_v3`
 - `src.retrieval.idf_retriever`
 - `src.retrieval.codebook_expansion_retriever`
 
-## Training and tests
+## 🏋️ Training & Tests
 
-Prepare local DailyDialog JSON as described in `data/README.md`, then run:
+Prepare local DailyDialog JSON as described in [`data/README.md`](data/README.md), then train:
 
 ```bash
 python -m pip install -r requirements-analysis.txt
 python -m vqvae_training.train_vqvae
 ```
 
-Checkpoints are saved under `models/T5/`. Training and inference share
-`src.utils.vqvae_t5_v10.VQVAE_T5`.
+Checkpoints are saved under `models/T5/`. Training and inference share `src.utils.vqvae_t5_v10.VQVAE_T5`.
+
+Run the offline checks:
 
 ```bash
 python -m unittest discover -s tests -v
 python tools/validate_release.py
 ```
 
-## Layout
+## 📂 Repository Layout
 
-```text
-settings.py              Shared configuration and named profiles
-local_config.example.py  Private configuration template
-run_*.py                 Experiment entry points
-experiments/             Evaluation loops and existing-memory workflow
-src/core/                Memory structures, SQLite metadata and FAISS vectors
-src/processing/          Asynchronous extraction and consolidation
-src/retrieval/           Retrieval implementations
-src/utils/               Embedding, LLM, evaluator and VQ-VAE implementations
-vqvae_training/          Training and codebook visualization helpers
-data/                    Data preparation instructions and downloader
-models/                  Local model configuration instructions
-tests/                   Offline tests
-tools/                   Source checking and packaging
-.github/                 CI workflow
-```
+| Path | Purpose |
+|---|---|
+| `settings.py` | Shared configuration and named profiles |
+| `local_config.example.py` | Private configuration template |
+| `run_*.py` | Experiment entry points |
+| `experiments/` | Evaluation loops and existing-memory workflow |
+| `src/core/` | Memory structures, SQLite metadata and FAISS vectors |
+| `src/processing/` | Asynchronous extraction and consolidation |
+| `src/retrieval/` | Retrieval implementations |
+| `src/utils/` | Embedding, LLM, evaluator and VQ-VAE implementations |
+| `vqvae_training/` | Training and codebook visualization helpers |
+| `data/` | Data preparation instructions and downloader |
+| `models/` | Local model configuration instructions |
+| `tests/` | Offline tests |
+| `tools/` | Source checking and packaging |
+| `assets/` | README banner and visual assets |
+| `.github/` | CI workflow |
 
-中文运行说明见 [README_zh.md](README_zh.md).
-
-## Citation
+## 📚 Citation
 
 If you find MemCode useful, please cite our paper:
 
@@ -132,3 +153,7 @@ If you find MemCode useful, please cite our paper:
   year    = {2026}
 }
 ```
+
+<p align="center">
+  <sub>Built for long-term agent memory research · NeurIPS 2026 Poster</sub>
+</p>

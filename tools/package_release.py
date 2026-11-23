@@ -8,8 +8,8 @@ OUTPUT_PATH = ROOT.parent / "outputs/releases/memcode_github_code_only_20261010_
 ROOT_FILES = {"README.md", "README_zh.md", "settings.py", "local_config.example.py", "release_runtime.py",
               "check_environment.py", "requirements.txt", "requirements-analysis.txt", ".gitignore",
               ".gitattributes", "LICENSE"}
-SOURCE_DIRS = {"src", "experiments", "vqvae_training", "tests", "tools", ".github"}
-EXTENSIONS = {".py", ".md", ".json", ".csv", ".txt", ".yml"}
+SOURCE_DIRS = {"src", "experiments", "vqvae_training", "tests", "tools", ".github", "assets"}
+EXTENSIONS = {".py", ".md", ".json", ".csv", ".txt", ".yml", ".svg"}
 
 
 def included(path):
