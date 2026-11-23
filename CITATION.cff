@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: If you use this software, please cite the associated paper.
+title: "MemCode: Discrete Semantic Representations for Long-Term Agent Memory"
+authors:
+  - family-names: Li
+    given-names: Xin
+  - family-names: Hu
+    given-names: Liang
+  - family-names: Miao
+    given-names: Duoqian
+  - family-names: Peng
+    given-names: Ming
+  - family-names: Zhang
+    given-names: Qi
+repository-code: https://github.com/Carry-LX/MemCode
+url: https://arxiv.org/abs/2610.19472
+license: MIT
+year: 2026
+preferred-citation:
+  type: article
+  title: "MemCode: Discrete Semantic Representations for Long-Term Agent Memory"
+  authors:
+    - family-names: Li
+      given-names: Xin
+    - family-names: Hu
+      given-names: Liang
+    - family-names: Miao
+      given-names: Duoqian
+    - family-names: Peng
+      given-names: Ming
+    - family-names: Zhang
+      given-names: Qi
+  journal: "arXiv preprint arXiv:2610.19472"
+  year: 2026

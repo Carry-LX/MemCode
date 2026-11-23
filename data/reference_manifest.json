@@ -1,0 +1,17 @@
+[
+  {
+    "filename": "locomo_10.json",
+    "rows": 10,
+    "sha256": "dc6ea582592459dbce9649bb01a57a30de59dd3a3627bd74086b4fb813934597"
+  },
+  {
+    "filename": "longmemeval_s.json",
+    "rows": 500,
+    "sha256": "08d8dad4be43ee2049a22ff5674eb86725d0ce5ff434cde2627e5e8e7e117894"
+  },
+  {
+    "filename": "longmemeval_s_cleaned.json",
+    "rows": 500,
+    "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+  }
+]
